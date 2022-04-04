@@ -1,0 +1,166 @@
+﻿:root {
+    --one: #2E446E;
+    --two: #ADC4F0;
+    --three: #6495ED;
+    --four: #4F5A6E;
+    --five: #4E74BA;
+    --six: #FFFFFF;
+}
+
+/* Fonts:
+font-family: 'Playfair Display', serif; --Headings 
+font-family: 'Source Sans Pro', sans-serif; --Body 
+*/
+
+body {
+    color: var(--four);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+h1, h2, h4, h5, h6 {
+    color: var(--three);
+    font-family: 'Playfair Display', serif;
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--six);
+}
+
+li {
+    list-style: none;
+}
+
+footer {
+    color: var(--three);
+}
+
+.border-bottom {
+    border-color: var(--three);
+}
+
+.card-header {
+    background-color: var(--three);
+    color: var(--six);
+}
+
+.card {
+    border-color: var(--three);
+    border-width: 0.5px;
+}
+
+.card-body {
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0.5px;
+    box-shadow: 1px, 1px, 2px;
+    background-color: var(--six);
+}
+
+.custom-page-header {
+    background-color: var(--three);
+}
+
+.custom-page-header h1 {
+    color: var(--six);
+}
+
+.custom-nav .nav-link {
+    color: var(--three);
+    font-size: 20px;
+}
+
+.left {
+    float: left;
+}
+
+.btn-primary, .btn-primary:active {
+    color: var(--six) !important;
+    background-color: var(--three) !important;
+}
+
+.bg-primary {
+    color: var(--three);
+    background-color: var(--three);
+}
+
+.btn-outline-primary, .btn-outline-primary:visited {
+    border-color: var(--three) !important;
+    color: var(--three) !important;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:active {
+    background-color: var(--three) !important;
+    color: var(--six) !important;
+}
+
+.btn-outline-primary-cart, .btn-outline-primary-cart:visited {
+    border-color: var(--three) !important;
+    color: var(--six) !important;
+}
+
+.btn-outline-primary-cart:hover, .btn-outline-primary-cart:active {
+    background-color: var(--three) !important;
+    color: var(--six) !important;
+    border-color: var(--five) !important;
+}
+
+.btn-outline-success, .btn-outline-success:hover,
+.btn-outline-success:active, .btn-outline-success:visited, .btn-sm {
+    border-color: var(--three) !important;
+    color: var(--three) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--two) !important;
+    color: var(--six) !important;
+}
+
+.btn-outline-danger, .btn-outline-danger:hover,
+.btn-outline-danger:active, .btn-outline-danger:visited {
+    border-color: var(--four) !important;
+    color: var(--three) !important;
+    background-color: var(--six) !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--four) !important;
+    color: var(--six) !important;
+}
+
+.cart-bar {
+    color: var(--six);
+    background-color: var(--five);
+}
+
+.cart {
+    background-color: var(--six);
+}
+
+.bg-admin {
+    background-color: var(--five);
+}
+
+.bg-admin2 {
+    background-color: var(--three);
+}
+
+.btn-admin2 {
+    border-color: var(--three) !important;
+    color: var(--three) !important;
+}
+
+.btn-admin2:hover {
+    background-color: var(--three) !important;
+    color: var(--six) !important;
+    border-color: var(--five) !important;
+}
+
+th, td {
+    color: var(--four);
+}
+
+.login-bg {
+    background-color: #f2f2f2;
+}
