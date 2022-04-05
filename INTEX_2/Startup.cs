@@ -28,14 +28,11 @@ namespace INTEX_2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<CrashDBContext>(options =>
-            //{
-            //    //options.UseMySql(Configuration.GetConnectionString("BowlersDbConnection"));
-            //    options.UseMySql(Configuration["ConnectionStrings:BowlersDBConnection"]);
-            //});
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<CrashDBContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("CrashDBConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();

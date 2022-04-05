@@ -6,21 +6,33 @@
 <h1>Accident Summary Page</h1>
 <table class="table table-bordered table-hover">
     <thead>
-        <tr>
-            <th>header</th>
-            <th>header</th>
-            <th>header</th>
-            <th>header</th>
-            <th>header</th>
+        <tr class="table-info text-center">
+            <td>Crash Time</td>
+            <td>Route</td>
+            <td>Main Road</td>
+            <td>County Name</td>
+            <td>Bicyclist Involved</td>
+            <td>DUI</td>
+            <td>Single Vehicle</td>
+            <td>Drowsy Driving</td>
+
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-        </tr>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.crash_datetime</td>
+                <td>@c.route</td>
+                <td>@c.main_road</td>
+                <td>@c.county_name</td>
+                <td>@c.bicyclist_involved</td>
+                <td>@c.dui</td>
+                <td>@c.single_vehicle</td>
+                <td>@c.drowsy_driving</td>
+                @*<td><a asp-action="Edit" asp-controller="Home" asp-route-id="@b.BowlerID">Edit</a></td>
+                <td><a asp-action="Delete" asp-controller="Home" asp-route-id="@b.BowlerID">Delete</a></td>*@
+            </tr>
+        }
     </tbody>
 </table>
