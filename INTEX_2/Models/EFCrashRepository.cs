@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace INTEX_2.Models
 {
-    public class EFCrashRepository
+    public class EFCrashRepository : ICrashRepository
     {
         private CrashDBContext context { get; set; }
 

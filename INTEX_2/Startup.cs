@@ -31,10 +31,17 @@ namespace INTEX_2
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddDbContext<CrashDBContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("CrashDBConnection")));
+            {
+                options.UseMySql(Configuration["ConnectionStrings:CrashDBConnection"]);
+            });
+          
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<ICrashRepository, EFCrashRepository>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
