@@ -1,4 +1,5 @@
 using INTEX_2.Data;
+using INTEX_2.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,11 @@ namespace INTEX_2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<CrashDBContext>(options =>
+            //{
+            //    //options.UseMySql(Configuration.GetConnectionString("BowlersDbConnection"));
+            //    options.UseMySql(Configuration["ConnectionStrings:BowlersDBConnection"]);
+            //});
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));

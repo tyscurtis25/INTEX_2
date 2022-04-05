@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace INTEX_2.Models
 {
-    public class CrashContext
+    public class CrashDBContext
     {
     }
 }
