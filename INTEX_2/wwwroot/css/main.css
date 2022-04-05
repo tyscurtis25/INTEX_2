@@ -1,30 +1,31 @@
 ﻿:root {
-    --one: #2E446E;
-    --two: #ADC4F0;
-    --three: #6495ED;
-    --four: #4F5A6E;
-    --five: #4E74BA;
+    --one: #F70000;
+    --two: #B93737;
+    --three: #AA0000;
+    --four: #F74A4A;
+    --five: #780000;
     --six: #FFFFFF;
+    --seven: #333333;
 }
 
 /* Fonts:
-font-family: 'Playfair Display', serif; --Headings 
-font-family: 'Source Sans Pro', sans-serif; --Body 
+font-family: 'Roboto', sans-serif;
+font-family: 'Lora', serif;
 */
 
 body {
-    color: var(--four);
-    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--seven);
+    font-family: 'Roboto', sans-serif;
 }
 
 
 h1, h2, h4, h5, h6 {
     color: var(--three);
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
 }
 
 h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
     color: var(--six);
 }
 
@@ -36,7 +37,11 @@ footer {
     color: var(--three);
 }
 
-.border-bottom {
+nav li {
+    color: var(--three);
+}
+
+/*.border-bottom {
     border-color: var(--three);
 }
 
@@ -163,4 +168,4 @@ th, td {
 
 .login-bg {
     background-color: #f2f2f2;
-}
+}*/
