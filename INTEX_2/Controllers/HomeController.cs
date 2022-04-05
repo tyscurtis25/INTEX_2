@@ -28,7 +28,9 @@ namespace INTEX_2.Controllers
         public IActionResult AccidentSummary(int crashSeverity)
         {
             ViewBag.Severity = crashSeverity;
-            var blah = repo.Crashes.ToList();
+            var blah = repo.Crashes
+                .Take(100)
+                .ToList();
                 //.Where(c => c.crash_id == 10805517);
 
             return View(blah);
