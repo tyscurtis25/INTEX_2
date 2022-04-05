@@ -25,6 +25,7 @@ namespace INTEX_2.Models
         public int crash_severity_id { get; set; }
         public bool work_zone_related { get; set; }
         public bool pedestrian_involved { get; set; }
+        public bool bicyclist_involved { get; set; }
         public bool motorcycle_involved { get; set; }
         public bool improper_restraints { get; set; }
         public bool unrestrained { get; set; }
@@ -35,6 +36,7 @@ namespace INTEX_2.Models
         public bool overturn_rollover { get; set; }
         public bool commercial_motor_veh_involved { get; set; }
         public bool teenage_driver_involved { get; set; }
+        public bool older_driver_involved { get; set; }
         public bool night_dark_condition { get; set; }
         public bool single_vehicle { get; set; }
         public bool distracted_driving { get; set; }

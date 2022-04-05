@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace INTEX_2.Models
 {
-    public class ICrashRepository
+    public interface ICrashRepository
     {
+        IQueryable<Crash> Crashes { get; }
     }
 }

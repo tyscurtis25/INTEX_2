@@ -7,5 +7,13 @@ namespace INTEX_2.Models
 {
     public class EFCrashRepository
     {
+        private CrashDBContext context { get; set; }
+
+        public EFCrashRepository (CrashDBContext temp)
+        {
+            context = temp;
+        }
+
+        public IQueryable<Crash> Crashes => context.Crashes;
     }
 }

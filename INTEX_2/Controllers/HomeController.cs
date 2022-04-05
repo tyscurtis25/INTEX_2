@@ -12,6 +12,7 @@ namespace INTEX_2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private ICrashRepository repo { get; set; }
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -23,9 +24,12 @@ namespace INTEX_2.Controllers
             return View();
         }
 
-        public IActionResult AccidentSummary()
+        public IActionResult AccidentSummary(int crashSeverity)
         {
-            return View();
+            ViewBag.Severity = crashSeverity;
+            var data = repo.Crashes
+                .ToList();
+            return View(data);
         }
 
         public IActionResult Privacy()
