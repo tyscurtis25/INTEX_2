@@ -17,7 +17,7 @@ namespace INTEX_2.Infrastructure
         //Dyanmically create the page links for us
 
         private IUrlHelperFactory uhf;
-        public PaginationTagHelper (IUrlHelperFactory temp)
+        public PaginationTagHelper(IUrlHelperFactory temp)
         {
             uhf = temp;
         }
@@ -31,7 +31,7 @@ namespace INTEX_2.Infrastructure
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
             TagBuilder final = new TagBuilder("div");
-            for (int i = PageModel.CurrentPage - 3; i <= PageModel.CurrentPage + 3; i++)
+            for (int i = ((PageModel.CurrentPage >= 3) ? PageModel.CurrentPage - 3 : 1); i <= ((PageModel.TotalPages >= PageModel.CurrentPage + 3) ? PageModel.CurrentPage + 3 : PageModel.TotalPages); i++)
             {
                 if (i <= 0)
                 {
@@ -47,7 +47,7 @@ namespace INTEX_2.Infrastructure
 
                     final.InnerHtml.AppendHtml(tb);
                 }
-               
+
             }
 
             tho.Content.AppendHtml(final.InnerHtml);
