@@ -73,9 +73,11 @@ namespace INTEX_2.Controllers
             return View(singleCrash);
         }
 
+
         public IActionResult LookingAhead()
         {
             return View();
         }
+
     }
 }
