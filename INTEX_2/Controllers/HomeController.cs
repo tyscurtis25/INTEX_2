@@ -1,6 +1,7 @@
 ﻿using INTEX_2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using INTEX_2.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,15 +26,29 @@ namespace INTEX_2.Controllers
             return View();
         }
 
-        public IActionResult AccidentSummary(int crashSeverity)
+        public IActionResult AccidentSummary(int pageNum = 1)
         {
-            ViewBag.Severity = crashSeverity;
-            var blah = repo.Crashes
-                .Take(100)
-                .ToList();
-                //.Where(c => c.crash_id == 10805517);
+            int pageSize = 20;
 
-            return View(blah);
+            ViewBag.pageNumber = pageNum;
+            ViewBag.numPages = (int) Math.Ceiling((double) repo.Crashes.Count() / pageSize);
+
+            var x = new CrashViewModel
+            {
+                Crashes = repo.Crashes
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = repo.Crashes.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum,
+                    
+                }
+            };
+
+            return View(x);
         }
 
         public IActionResult Privacy()
