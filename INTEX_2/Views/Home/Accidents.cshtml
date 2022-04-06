@@ -1,0 +1,57 @@
+﻿@{
+}
+
+@model CrashViewModel
+
+<div class="row m-1 p-1">
+    
+    <div class="col-2 d-grid gap-2">
+        <vc:filter></vc:filter>
+    </div>
+
+    <div class="col-10">
+        <table class="table table-responsive-sm table-striped table-hover">
+            <thead>
+                <tr class="table-light">
+                    <th>Crash Time</th>
+                    <th>Route</th>
+                    <th>Main Road</th>
+                    <th>City</th>
+                    <th>County Name</th>
+                    <th>Crash Severity</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Crash c in Model.Crashes)
+                {
+                    <tr>
+                        <partial name="AccidentSummary" model="c" />
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+        <div>
+            Page @ViewBag.pageNumber of @ViewBag.numPages
+        </div>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group" page-model="@Model.PageInfo" page-action="Accidents">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
