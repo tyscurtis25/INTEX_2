@@ -5,29 +5,10 @@
 
 <td>@Model.crash_datetime</td>
 <td>@Model.route</td>
-@*<td>@Model.milepoint</td>
-<td>@Model.lat_utm_y</td>
-<td>@Model.long_utm_x</td>*@
 <td>@Model.main_road</td>
 <td>@Model.city</td>
 <td>@Model.county_name</td>
 <td>@Model.crash_severity_id</td>
-@*<td>@Model.work_zone_related</td>
-<td>@Model.pedestrian_involved</td>
-<td>@Model.bicyclist_involved</td>
-<td>@Model.motorcycle_involved</td>
-<td>@Model.improper_restraint</td>
-<td>@Model.unrestrained</td>
-<td>@Model.dui</td>
-<td>@Model.intersection_related</td>
-<td>@Model.wild_animal_related</td>
-<td>@Model.domestic_animal_related</td>
-<td>@Model.overturn_rollover</td>
-<td>@Model.commercial_motor_veh_involved</td>
-<td>@Model.teenage_driver_involved</td>
-<td>@Model.older_driver_involved</td>
-<td>@Model.night_dark_condition</td>
-<td>@Model.single_vehicle</td>
-<td>@Model.distracted_driving</td>
-<td>@Model.drowsy_driving</td>
-<td>@Model.roadway_departure</td>*@
+<td><a class="btn btn-info btn-sm" asp-action="AccidentDetails" 
+       asp-controller="Home" asp-route-recordId="@Model.crash_id">See Details</a>
+</td>
