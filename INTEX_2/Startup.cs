@@ -76,22 +76,25 @@ namespace INTEX_2
 
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-                //endpoints.MapControllerRoute("categorypage",
-                //    "{bookCategory}/page-{pageNum}",
-                //    new { Controller = "Home", action = "Index" });
+                    name: "filterpage",
+                    pattern: "Filter{accidentFilter}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Accidents" });
 
-                //endpoints.MapControllerRoute("Paging",
-                //    "page-{pageNum}",
-                //    new { Controller = "Home", action = "Index", pageNum = 1 });
+                endpoints.MapControllerRoute(
+                    name: "paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Accidents", pageNum = 1 });
+                
+                
+                //endpoints.MapControllerRoute(
+                //    name: "filter",
+                //    pattern: "Filter{accidentFilter}",
+                //    defaults: new { Controller = "Home", action = "Accidents", pageNum = 1 });
 
-                //endpoints.MapControllerRoute("category",
-                //    "{bookCategory}",
-                //    new { Controller = "Home", action = "Index", pageNum = 1 });
-
+                
+               
                 endpoints.MapDefaultControllerRoute();
 
                 endpoints.MapRazorPages();

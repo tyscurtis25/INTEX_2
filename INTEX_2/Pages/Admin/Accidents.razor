@@ -2,28 +2,47 @@
 @page "/admin"
 @inherits OwningComponentBase<ICrashRepository>
 
-<h3>Accidents</h3>
+<div class="container col-11">
+    <div class="row p-2">
 
-<table class="table table-sm table-hover table-bordered">
+        <div class="col-8">
 
-    <thead>
-        <tr>
-            <th>Crash Time</th>
-            <th>Route</th>
-            <th>Main Road</th>
-            <th>City</th>
-            <th>County Name</th>
-            <th>Crash Severity</th>
-        </tr>
-    </thead>
+            <div class="d-grid gap-2">
+                <h3>Accidents</h3>
+            </div>
 
-    <tbody>
+        </div>
+        <div class="col-4">
 
-        @if (CrashData?.Count() > 0)
-        {
-            //List Books
-            @foreach (Crash c in CrashData)
-            {
+            <div class="d-grid gap-2">
+                <NavLink class="btn btn-outline-primary" href="/admin/accidents/create">Create New Record</NavLink>
+            </div>
+
+        </div>
+
+
+
+        <table class="table table-sm table-hover table-bordered">
+
+            <thead>
+                <tr class="table-info text-center">
+                    <th>Crash Time</th>
+                    <th>Route</th>
+                    <th>Main Road</th>
+                    <th>City</th>
+                    <th>County Name</th>
+                    <th>Crash Severity</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @if (CrashData?.Count() > 0)
+                {
+                    //List Books
+                    @foreach (Crash c in CrashData)
+                    {
                 <tr>
 
                     <td>@c.crash_datetime</td>
@@ -35,28 +54,38 @@
 
                     <td>
                         <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
+                        <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
+                        <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
+                    </td>
+                    @*<td>
+                        <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
                     </td>
                     <td>
                         <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger btn-sm" @onclick="@(x => DeleteCrash(c))">Delete</button>
-                        <asp:ButtonColumn ButtonType="LinkedButton" CommandName="Select" Text="Select" ItemStyle-HorizontalAlign="Center"></asp:ButtonColumn>
-                    </td>
+                        <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
+                    </td>*@
+                    @*This is a button that deletes the record immediately, without confirmation.*@
+                    @*<td>
+            <button class="btn btn-outline-danger btn-sm" @onclick="@(x => DeleteCrash(c))">Delete</button>
+        </td>*@
                 </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="5" class="text-center">No Accidents</td>
-            </tr>
-        }
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center">No Accidents</td>
+                    </tr>
+                }
 
-    </tbody>
+            </tbody>
 
-</table>
+        </table>
 
+    </div>
+</div>
 @*pagination*@
 
 
@@ -78,13 +107,14 @@
     public async Task UpdateData()
     {
         CrashData = await repo.Crashes
-            //.Where(c => c.milepoint == 75)
+            .Where(c => c.milepoint == 75)
             .Take(100) //So the machine survives
             .ToListAsync();
     }
 
     public string GetDetailsUrl(int id) => $"/admin/accidents/details/{id}";
     public string GetEditUrl(int id) => $"/admin/accidents/edit/{id}";
+    public string GetDeleteUrl(int id) => $"/admin/accidents/delete/{id}";
 
     public async Task DeleteCrash(Crash c)
     {

@@ -1,0 +1,14 @@
+﻿@{
+}
+
+@model Crash
+
+<td>@Model.crash_datetime</td>
+<td>@Model.route</td>
+<td>@Model.main_road</td>
+<td>@Model.city</td>
+<td>@Model.county_name</td>
+<td>@Model.crash_severity_id</td>
+<td><a class="btn btn-info btn-sm" asp-action="AccidentDetails" 
+       asp-controller="Home" asp-route-recordId="@Model.crash_id">See Details</a>
+</td>

@@ -26,7 +26,7 @@ namespace INTEX_2.Controllers
             return View();
         }
 
-        public IActionResult AccidentSummary(int pageNum = 1)
+        public IActionResult Accidents(int accidentFilter, int pageNum = 1)
         {
             int pageSize = 20;
 
@@ -36,12 +36,13 @@ namespace INTEX_2.Controllers
             var x = new CrashViewModel
             {
                 Crashes = repo.Crashes
+                .Where(c => c.crash_severity_id == accidentFilter || accidentFilter == 0)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = repo.Crashes.Count(),
+                    TotalNumCrashes = (accidentFilter == 0 ? repo.Crashes.Count() : repo.Crashes.Where(c => c.crash_severity_id == accidentFilter).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum,
                     
@@ -72,6 +73,11 @@ namespace INTEX_2.Controllers
             return View(singleCrash);
         }
 
-        
+
+        public IActionResult LookingAhead()
+        {
+            return View();
+        }
+
     }
 }
