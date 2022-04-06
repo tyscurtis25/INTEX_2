@@ -30,6 +30,11 @@
     @*<h2>Break it down? That's hand-carved mahogany</h2>*@
     <component type="typeof(INTEX_2.Pages.Admin.Routed)" render-mode="Server" />
     <script src="/_framework/blazor.server.js"></script>
+    <script language="javascript">
+        function beforeDelete() {
+            return (confirm('Are you sure you want to delete?'));
+        }
+    </script>
 
 </body>
 
