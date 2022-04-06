@@ -10,7 +10,10 @@
         <tr>
             <th>Crash Time</th>
             <th>Route</th>
-            <th>Milepoint</th>
+            <th>Main Road</th>
+            <th>City</th>
+            <th>County Name</th>
+            <th>Crash Severity</th>
         </tr>
     </thead>
 
@@ -22,11 +25,17 @@
             @foreach (Crash c in CrashData)
             {
                 <tr>
-         
+
                     <td>@c.crash_datetime</td>
                     <td>@c.route</td>
-                    <td>@c.milepoint</td>
+                    <td>@c.main_road</td>
+                    <td>@c.city</td>
+                    <td>@c.county_name</td>
+                    <td>@c.crash_severity_id</td>
 
+                    <td>
+                        <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
+                    </td>
                     <td>
                         <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
                     </td>
@@ -48,7 +57,14 @@
 
 </table>
 
+@*pagination*@
+
+
+<br />
+
 @code {
+
+    //before pagination
 
     public ICrashRepository repo => Service;
 
@@ -62,11 +78,12 @@
     public async Task UpdateData()
     {
         CrashData = await repo.Crashes
-            .Where(c => c.milepoint == 75)
+            //.Where(c => c.milepoint == 75)
             .Take(100) //So the machine survives
             .ToListAsync();
     }
 
+    public string GetDetailsUrl(int id) => $"/admin/accidents/details/{id}";
     public string GetEditUrl(int id) => $"/admin/accidents/edit/{id}";
 
     public async Task DeleteCrash(Crash c)
@@ -75,4 +92,5 @@
         await UpdateData();
     }
 
+    //  pagination
 }
