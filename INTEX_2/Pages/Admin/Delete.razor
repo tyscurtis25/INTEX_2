@@ -1,0 +1,57 @@
+﻿@page "/admin/accidents/delete/{id:int}"
+
+@inherits OwningComponentBase<ICrashRepository>
+
+
+<h3>Are you sure you want to delete this record?</h3>
+<EditForm Model="c" OnValidSubmit="@(x => DeleteCrash(c))">
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+    <NavLink class="btn btn-outline-success" href="/admin/accidents">Cancel</NavLink>
+</EditForm>
+
+
+
+
+
+@code {
+
+    public Crash c { get; set; } = new Crash();
+
+    public ICrashRepository repo => Service;
+
+    public IEnumerable<Crash> CrashData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        c = repo.Crashes.FirstOrDefault(x => x.crash_id == Id);
+    }
+
+    public string EditUrl => $"/admin/accidents/edit/{c.crash_id}";
+
+    public async Task UpdateData()
+    {
+        CrashData = await repo.Crashes
+            //.Where(c => c.milepoint == 75)
+            .Take(100) //So the machine survives
+            .ToListAsync();
+    }
+
+    public async Task DeleteCrash(Crash c)
+    {
+        repo.DeleteCrash(c);
+        await UpdateData();
+
+        NavManager.NavigateTo("/admin/accidents");
+    }
+
+    [Inject]
+    public NavigationManager NavManager { get; set; }
+}
