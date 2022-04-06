@@ -71,5 +71,7 @@ namespace INTEX_2.Controllers
 
             return View(singleCrash);
         }
+
+        
     }
 }
