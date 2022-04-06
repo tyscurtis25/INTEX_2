@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Crash
+
+<h1>Crash Details</h1>
+<div class="row">
+    <div class="col">
+        <h2>Location Information</h2>
+        <div>
+            <ul>
+                <li>Crash Date: @Model.crash_datetime</li>
+                <li>Route: @Model.route</li>
+                <li>Main Road: @Model.main_road</li>
+                <li>City: @Model.city</li>
+                <li>County: @Model.county_name</li>
+                <li>Milemarker: @Model.milepoint</li>
+                <li>Latitude: @Model.lat_utm_y</li>
+                <li>Longitude: @Model.long_utm_x</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <h2>Crash Conditions</h2>
+        <ul>
+            <li>In Work Zone: @Model.work_zone_related</li>
+            <li>Pedestrian Involved: @Model.pedestrian_involved</li>
+            <li>Bicycle Involved: @Model.bicyclist_involved</li>
+            <li>Motorcycle Involved: @Model.motorcycle_involved</li>
+            <li>Improper Restraint: @Model.improper_restraint</li>
+            <li>Unrestrained: @Model.unrestrained</li>
+            <li>DUI: @Model.dui</li>
+            <li>Intersection Related: @Model.intersection_related</li>
+            <li>Wild Animal Related: @Model.wild_animal_related</li>
+            <li>Domestic Animal Related: @Model.domestic_animal_related</li>
+            <li>Overturn Rollover: @Model.overturn_rollover</li>
+            <li>Commercial Motor Vehicle: @Model.commercial_motor_veh_involved</li>
+            <li>Teenage Driver: @Model.teenage_driver_involved</li>
+            <li>Senior Driver: @Model.older_driver_involved</li>
+            <li>Night Conditions: @Model.night_dark_condition</li>
+            <li>Single Vehicle: @Model.single_vehicle</li>
+            <li>Distracted Driving: @Model.distracted_driving</li>
+            <li>Drowsey Driving: @Model.drowsy_driving</li>
+            <li>Roadway Departure: @Model.roadway_departure</li>
+        </ul>
+    </div>
+</div>
+

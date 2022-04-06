@@ -9,70 +9,28 @@
         <tr class="table-info text-center">
             <td>Crash Time</td>
             <td>Route</td>
-            <td>Milepoint</td>
-            <td>Lattitude</td>
-            <td>Longitude</td>
             <td>Main Road</td>
             <td>City</td>
             <td>County Name</td>
             <td>Crash Severity</td>
-            <td>Work Zone Related</td>
-            <td>Pedestrian Involved</td>
-            <td>Bicyclist Involved</td>
-            <td>Motorcycle Involved</td>
-            <td>Improper Restraint</td>
-            <td>Unrestrained</td>
-            <td>DUI</td>
-            <td>Intersection Related</td>
-            <td>Wild Animal Related</td>
-            <td>Domestic Animal Related</td>
-            <td>Overturn Roll Over</td>
-            <td>Commercial Motor Vehicle Involved</td>
-            <td>Teenage Driver Involved</td>
-            <td>Older Driver Involved</td>
-            <td>Night Condition</td>
-            <td>Single Vehicle</td>
-            <td>Distracted Driving</td>
-            <td>Drowsy Driving</td>
-            <td>Roadway Departure</td>
+            
 
         </tr>
     </thead>
     <tbody>
         @foreach (Crash c in Model.Crashes)
         {
-            <tr>
-                <td>@c.crash_datetime</td>
-                <td>@c.route</td>
-                <td>@c.milepoint</td>
-                <td>@c.lat_utm_y</td>
-                <td>@c.long_utm_x</td>
-                <td>@c.main_road</td>
-                <td>@c.city</td>
-                <td>@c.county_name</td>
-                <td>@c.crash_severity_id</td>
-                <td>@c.work_zone_related</td>
-                <td>@c.pedestrian_involved</td>
-                <td>@c.bicyclist_involved</td>
-                <td>@c.motorcycle_involved</td>
-                <td>@c.improper_restraint</td>
-                <td>@c.unrestrained</td>
-                <td>@c.dui</td>
-                <td>@c.intersection_related</td>
-                <td>@c.wild_animal_related</td>
-                <td>@c.domestic_animal_related</td>
-                <td>@c.overturn_rollover</td>
-                <td>@c.commercial_motor_veh_involved</td>
-                <td>@c.teenage_driver_involved</td>
-                <td>@c.older_driver_involved</td>
-                <td>@c.night_dark_condition</td>
-                <td>@c.single_vehicle</td>
-                <td>@c.distracted_driving</td>
-                <td>@c.drowsy_driving</td>
-                <td>@c.roadway_departure</td>
-                @*<td><a asp-action="Edit" asp-controller="Home" asp-route-id="@b.BowlerID">Edit</a></td>
-                    <td><a asp-action="Delete" asp-controller="Home" asp-route-id="@b.BowlerID">Delete</a></td>*@
-            </tr>
+        <tr>
+            <td>@c.crash_datetime</td>
+            <td>@c.route</td>
+            <td>@c.main_road</td>
+            <td>@c.city</td>
+            <td>@c.county_name</td>
+            <td>@c.crash_severity_id</td>
+            <td><a class="btn btn-primary"asp-action="AccidentDetails" asp-controller="Home" asp-route-recordId="@c.crash_id">See Details</a></td>
+            @*<td><a asp-action="Edit" asp-controller="Home" asp-route-id="@b.BowlerID">Edit</a></td>
+            <td><a asp-action="Delete" asp-controller="Home" asp-route-id="@b.BowlerID">Delete</a></td>*@
+        </tr>
         }
     </tbody>
 </table>

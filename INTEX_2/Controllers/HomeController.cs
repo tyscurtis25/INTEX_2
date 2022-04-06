@@ -61,5 +61,15 @@ namespace INTEX_2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        public IActionResult AccidentDetails(int recordId)
+        {
+
+            var singleCrash = repo.Crashes.FirstOrDefault(x => x.crash_id == recordId);
+            
+
+            return View(singleCrash);
+        }
     }
 }
