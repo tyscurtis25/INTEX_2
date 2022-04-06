@@ -1,0 +1,83 @@
+﻿@page "/admin/accidents/edit/{id:int}"
+@page "/admin/accidents/create"
+@inherits OwningComponentBase<ICrashRepository>
+
+<style>
+    div.validation-message {
+        color: rgb(220, 53, 69);
+        font-weight: 500;
+    }
+</style>
+
+<h3 class="bg-@ThemeColor text-white text-center p-1">Edit Accident That Occurred: "@c.crash_datetime"</h3>
+
+<EditForm Model="c" OnValidSubmit="SaveCrash">
+
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+
+    <div class="form-group">
+        <label>Crash ID:</label>
+        <input class="form-control" disabled value="@c.crash_id" />
+    </div>
+
+    <div class="form-group">
+        <label>Crash Date-Time:</label>
+        <ValidationMessage For="@(() => c.crash_datetime)"></ValidationMessage>
+        <InputDate class="form-control" @bind-Value="c.crash_datetime"></InputDate>
+    </div>
+
+    <div class="form-group">
+        <label>Route:</label>
+        <ValidationMessage For="@(() => c.route)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.route"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Milepoint:</label>
+        <ValidationMessage For="@(() => c.milepoint)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.milepoint"></InputNumber>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-@ThemeColor">Save</button>
+    <NavLink class="btn btn-outline-danger" href="/admin/accidents">Cancel</NavLink>
+
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; } = 0;
+
+    public string ThemeColor => Id == 0 ? "primary" : "admin2";
+    public string TitleText => Id == 0 ? "Create" : "Edit";
+
+    public Crash c { get; set; } = new Crash();
+
+    public ICrashRepository repo => Service;
+
+    protected override void OnParametersSet()
+    {
+        if (Id != 0) //Existing Crash
+        {
+            c = repo.Crashes.FirstOrDefault(x => x.crash_id == Id);
+        }
+    }
+
+    public void SaveCrash()
+    {
+        if (Id == 0) //New Crash
+        {
+            repo.CreateCrash(c);
+        }
+        else
+        {
+            repo.SaveCrash(c);
+        }
+
+        NavManager.NavigateTo("/admin/accidents");
+    }
+
+    [Inject]
+    public NavigationManager NavManager { get; set; }
+
+}
