@@ -47,7 +47,13 @@ namespace INTEX_2
             services.AddScoped<ICrashRepository, EFCrashRepository>();
 
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizePage("/admin");
+                options.Conventions.AuthorizeFolder("/Admin");
+                //options.Conventions.AllowAnonymousToPage("/Private/PublicPage");
+                //options.Conventions.AllowAnonymousToFolder("/Private/PublicPages");
+            });
             services.AddDistributedMemoryCache();
             services.AddServerSideBlazor();
 
@@ -82,6 +88,8 @@ namespace INTEX_2
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            
 
             app.UseEndpoints(endpoints =>
             {
