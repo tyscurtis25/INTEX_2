@@ -16,113 +16,110 @@
         <input asp-for="Long_utm_x" />
     </div>
     <div>
-        <label asp-for="Intersection_Related_False">Intesection Related False:</label>
-        <input asp-for="Intersection_Related_False" /><br />
+        <label asp-for="Intersection_Related_True">Did the accident occur in an intersection?</label>
+        <select asp-for="Intersection_Related_True">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
     </div>
     <div>
-        <label asp-for="Intersection_Related_True">Intersection Related True:</label>
-        <input asp-for="Intersection_Related_True" /><br />
+        <label asp-for="Teenage_driver_involved_true">Was a teenage driver involved?</label>
+        <select asp-for="Teenage_driver_involved_true">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
     </div>
     <div>
-        <label asp-for="Teenage_driver_involved_true">Teenage Driver True:</label>
-        <input asp-for="Teenage_driver_involved_true" />
+        <label asp-for="Older_driver_involved_true">Was an older driver involved?</label>
+        <select asp-for="Older_driver_involved_true">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
     </div>
     <div>
-        <label asp-for="Teenage_driver_involved_false">Teenage Driver False:</label>
-        <input asp-for="Teenage_driver_involved_false" />
+        <label asp-for="Night_dark_condition_true">Did the accident occur at night?</label>
+        <select asp-for="Night_dark_condition_true">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
     </div>
     <div>
-        <label asp-for="Older_driver_involved_true">Old Driver True:</label>
-        <input asp-for="Older_driver_involved_true" />
+        <label asp-for="Single_vehicle_true">Was there only one vehicle involved?</label>
+        <select asp-for="Single_vehicle_true">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
     </div>
     <div>
-        <label asp-for="Older_driver_involved_false">Old Driver False:</label>
-        <input asp-for="Older_driver_involved_false" />
+        <label asp-for="Roadway_departure_true">Did the vehicle leave the roadway?</label>
+        <select asp-for="Roadway_departure_true">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
+    </div>
+    <div class="form-check">
+        <div><strong>What route did the accident occur on?</strong></div>
+        <input asp-for="Route_15" class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="Route_15">
+            15
+        </label><br />
+        <input asp-for="Route_Other" class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="Route_Other">
+            Other
+        </label>
+    </div>
+    <div class="form-check">
+        <div><strong>What road did the accident occur on?</strong></div>
+        <input asp-for="Main_road_name_I15" class="form-check-input" type="radio" value="1" name="1flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="Main_road_name_I15">
+            I-15
+        </label><br />
+        <input asp-for="Main_road_name_Other" class="form-check-input" type="radio" value="1" name="1flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="Main_road_name_Other">
+            Other
+        </label>
+    </div>
+    <div class="form-check">
+        <div><strong>Where did the accident occur?</strong></div>
+        <input asp-for="City_OUTSIDE_CITY_LIMITS" class="form-check-input" type="radio" value="1" name="2flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="City_OUTSIDE_CITY_LIMITS">
+            Outside City Limits
+        </label><br />
+        <input asp-for="City_Other" class="form-check-input" type="radio" value="1" name="2flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="City_Other">
+            Within City Limits
+        </label>
+    </div>
+    <div class="form-check">
+        <div><strong>What county did the accident occur in?</strong></div>
+        <input asp-for="County_name_UTAH" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="County_name_UTAH">
+            Utah County
+        </label><br />
+        <input asp-for="County_name_SALT_LAKE" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="County_name_SALT_LAKE">
+            Salt Lake County
+        </label><br />
+        <input asp-for="County_name_Other" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" asp-for="County_name_Other">
+            Other
+        </label>
     </div>
     <div>
-        <label asp-for="Night_dark_condition_true">Night True:</label>
-        <input asp-for="Night_dark_condition_true" />
+        <label asp-for="Month_1">Did The Accident Occur in the Month of January?</label>
+        <select asp-for="Month_1">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
     </div>
     <div>
-        <label asp-for="Night_dark_condition_false">Night False</label>
-        <input asp-for="Night_dark_condition_false" />
+        <label asp-for="Hour_17">Did The Accident Occur around 5 PM?</label>
+        <select asp-for="Hour_17">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
     </div>
-    <div>
-        <label asp-for="Single_vehicle_true">Single Vehicle True:</label>
-        <input asp-for="Single_vehicle_true" />
-    </div>
-    <div>
-        <label asp-for="Single_vehicle_false">Single Vehicle False:</label>
-        <input asp-for="Single_vehicle_false" />
-    </div>
-    <div>
-        <label asp-for="Roadway_departure_true">Roadway Departure True:</label>
-        <input asp-for="Roadway_departure_true" />
-    </div>
-    <div>
-        <label asp-for="Roadway_departure_false">Roadway Departure False:</label>
-        <input asp-for="Roadway_departure_false" />
-    </div>
-    <div>
-        <label asp-for="Route_Other"> Route Other True: </label>
-        <input asp-for="Route_Other" />
-    </div>
-    <div>
-        <label asp-for="Route_15">I-15:</label>
-        <input asp-for="Route_15" />
-    </div>
-    <div>
-        <label asp-for="Main_road_name_Other">Main Road Name Other:</label>
-        <input asp-for="Main_road_name_Other" />
-    </div>
-    <div>
-        <label asp-for="Main_road_name_I15">Road Name I-15:</label>
-        <input asp-for="Main_road_name_I15" />
-    </div>
-    <div>
-        <label asp-for="milepoint_0_1">MilePoint 1:</label>
-        <input asp-for="milepoint_0_1" />
-    </div>
-    <div>
-        <label asp-for="City_OUTSIDE_CITY_LIMITS">Outside City Limits:</label>
-        <input asp-for="City_OUTSIDE_CITY_LIMITS" />
-    </div>
-    <div>
-        <label asp-for="City_Other">City Other:</label>
-        <input asp-for="City_Other" />
-    </div>
-    <div>
-        <label asp-for="County_name_Other">County Other:</label>
-        <input asp-for="County_name_Other" />
-    </div>
-    <div>
-        <label asp-for="County_name_SALT_LAKE">County SLC:</label>
-        <input asp-for="County_name_SALT_LAKE" />
-    </div>
-    <div>
-        <label asp-for="County_name_UTAH">County Utah:</label>
-        <input asp-for="County_name_UTAH" />
-    </div>
-    <div>
-        <label asp-for="Year_2016">Year 2016:</label>
-        <input asp-for="Year_2016" />
-    </div>
-    <div>
-        <label asp-for="Year_2017">Year 2017:</label>
-        <input asp-for="Year_2017" />
-    </div>
-    <div>
-        <label asp-for="Year_2018">Year 2018:</label>
-        <input asp-for="Year_2018" />
-    </div>
-    <div>
-        <label asp-for="Month_1">Month January:</label>
-        <input asp-for="Month_1" />
-    </div>
-    <div>
-        <label asp-for="Hour_17">Hour 17:</label>
-        <input asp-for="Hour_17" />
-    </div>
+
 
     <button type="submit">Predict Severity</button>
 
