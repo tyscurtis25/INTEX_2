@@ -19,27 +19,25 @@ namespace INTEX_2.Controllers
             _session = session;
         }
 
+        [HttpGet]
+        public IActionResult LookingAhead()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult Score(CrashSeverity data)
+        public IActionResult Score(CrashSeverity data)
         {
             var result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
             });
-            Tensor<float> score = result.First().AsTensor<float>();
-            var prediction = new Prediction { PredictedValue = score.First() * 100000 };
+            Tensor<string> score = result.First().AsTensor<string>();
+            var prediction = new Prediction { PredictedValue = score.Last() };
             result.Dispose();
-            return View(PredictionView, prediction);
+            return View("Score", prediction);
         }
 
-        private IActionResult PredictionView(float arg)
-        {
-            throw new NotImplementedException();
-        }
-
-        private ActionResult View(Func<float, IActionResult> predictionView, Prediction prediction)
-        {
-            throw new NotImplementedException();
-        }
+ 
     }
 }
