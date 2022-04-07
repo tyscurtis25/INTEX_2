@@ -33,14 +33,14 @@ namespace INTEX_2
                 new InferenceSession("Models/intex.onnx"));
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
-            
+
             services.AddDbContext<CrashDBContext>(options =>
             {
                 options.UseMySql(Configuration["ConnectionStrings:CrashDBConnection"]);
             });
-          
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
