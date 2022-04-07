@@ -1,5 +1,5 @@
-﻿@page "/admin/accidents/edit/{id:int}"
-@page "/admin/accidents/create"
+﻿@page "/admin/edit/{id:int}"
+@page "/admin/create"
 @inherits OwningComponentBase<ICrashRepository>
 
 <style>
@@ -70,15 +70,14 @@
                 <ValidationMessage For="@(() => c.crash_severity_id)"></ValidationMessage>
                 <InputNumber class="form-control" @bind-Value="c.crash_severity_id"></InputNumber>
             </div>
-            @*<div class="form-group">
+            <div class="form-group">
                 <label>Work Zone Related:</label>
                 <ValidationMessage For="@(() => c.work_zone_related)"></ValidationMessage>
-                <InputSelect class="form-control" @bind-Value="c.work_zone_related">
-                    <option value="True">True</option>
-                    <option value="False">False</option>
-                </InputSelect>
-            </div>*@
-            @*<div class="form-group">
+                <InputNumber class="form-control" @bind-Value="c.work_zone_related">
+                </InputNumber>
+            </div>
+            @*after testing*@
+            <div class="form-group">
                 <label>Pedestrian Involved:</label>
                 <ValidationMessage For="@(() => c.pedestrian_involved)"></ValidationMessage>
                 <InputNumber class="form-control" @bind-Value="c.pedestrian_involved"></InputNumber>
@@ -167,11 +166,11 @@
                 <label>Roadway Departure:</label>
                 <ValidationMessage For="@(() => c.roadway_departure)"></ValidationMessage>
                 <InputNumber class="form-control" @bind-Value="c.roadway_departure"></InputNumber>
-            </div>*@
+            </div>
 
             <br />
             <button type="submit" class="btn btn-outline-success">Save</button>
-            <NavLink class="btn btn-outline-danger" href="/admin/accidents">Cancel</NavLink>
+            <NavLink class="btn btn-outline-danger" href="/admin">Cancel</NavLink>
 
         </EditForm>
     </div>
@@ -186,8 +185,6 @@
     public string TitleText => Id == 0 ? "Create" : "Edit";
 
     public Crash c { get; set; } = new Crash();
-
-    public IEnumerable<Crash> CrashData { get; set; }
 
     public ICrashRepository repo => Service;
 
@@ -210,28 +207,10 @@
             repo.SaveCrash(c);
         }
 
-        NavManager.NavigateTo("/admin/accidents");
+        NavManager.NavigateTo("/admin");
     }
 
     [Inject]
     public NavigationManager NavManager { get; set; }
-
-    public class InputSelectBoolean : InputSelect<bool>
-    {
-        protected override bool TryParseValueFromString(string? value, out bool result,
-            out string validationErrorMessage)
-        {
-            if (bool.TryParse(value, out var resultBool))
-            {
-                result = resultBool;
-                validationErrorMessage = string.Empty;
-                return true;
-            }
-
-            result = default!;
-            validationErrorMessage = "The chosen value is not a valid boolean.";
-            return false;
-        }
-    }
 
 }

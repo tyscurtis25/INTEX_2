@@ -1,4 +1,4 @@
-﻿@page "/admin/accidents/details/{id:int}"
+﻿@page "/admin/details/{id:int}"
 
 <div class="container col-8">
     <div class="card">
@@ -39,7 +39,7 @@
         </table>
     </div>
     <NavLink class="btn btn-outline-success" href="@EditUrl">Edit</NavLink>
-    <NavLink class="btn btn-outline-danger" href="/admin/accidents">Back</NavLink>
+    <NavLink class="btn btn-outline-danger" href="/admin">Back</NavLink>
 </div>
 
 @code {
@@ -57,6 +57,6 @@
         c = repo.Crashes.FirstOrDefault(x => x.crash_id == Id);
     }
 
-    public string EditUrl => $"/admin/accidents/edit/{c.crash_id}";
+    public string EditUrl => $"/admin/edit/{c.crash_id}";
 
 }

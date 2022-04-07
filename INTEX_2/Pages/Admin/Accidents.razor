@@ -1,5 +1,4 @@
-﻿@page "/admin/accidents"
-@page "/admin"
+﻿@page "/admin"
 @inherits OwningComponentBase<ICrashRepository>
 
 <div class="container col-11">
@@ -15,7 +14,7 @@
         <div class="col-4">
 
             <div class="d-grid gap-2">
-                <NavLink class="btn btn-outline-primary" href="/admin/accidents/create">Create New Record</NavLink>
+                <NavLink class="btn btn-outline-primary" href="/admin/create">Create New Record</NavLink>
             </div>
 
         </div>
@@ -25,7 +24,7 @@
         <table class="table table-sm table-hover table-bordered">
 
             <thead>
-                <tr class="table-info text-center">
+                <tr class="bg-red2 text-center">
                     <th>Crash Time</th>
                     <th>Route</th>
                     <th>Main Road</th>
@@ -112,15 +111,15 @@
             .ToListAsync();
     }
 
-    public string GetDetailsUrl(int id) => $"/admin/accidents/details/{id}";
-    public string GetEditUrl(int id) => $"/admin/accidents/edit/{id}";
-    public string GetDeleteUrl(int id) => $"/admin/accidents/delete/{id}";
+    public string GetDetailsUrl(int id) => $"/admin/details/{id}";
+    public string GetEditUrl(int id) => $"/admin/edit/{id}";
+    public string GetDeleteUrl(int id) => $"/admin/delete/{id}";
 
-    public async Task DeleteCrash(Crash c)
-    {
-        repo.DeleteCrash(c);
-        await UpdateData();
-    }
+    //public async Task DeleteCrash(Crash c)
+    //{
+    //    repo.DeleteCrash(c);
+    //    await UpdateData();
+    //}
 
     //  pagination
 }
