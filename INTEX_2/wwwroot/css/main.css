@@ -57,6 +57,14 @@ nav li {
     color: var(--four);
 }
 
+dd, dt {
+    font-size: 20px;
+}
+
+.inline-stuff {
+    display: inline;
+}
+
 /*.border-bottom {
     border-color: var(--three);
 }
