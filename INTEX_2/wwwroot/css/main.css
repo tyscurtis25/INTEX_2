@@ -41,6 +41,13 @@ nav li {
     color: var(--three);
 }
 
+.bg-red {
+    background-color: var(--five);
+}
+.bg-red2 {
+    color: var(--four);
+}
+
 /*.border-bottom {
     border-color: var(--three);
 }

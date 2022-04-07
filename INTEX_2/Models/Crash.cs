@@ -23,25 +23,63 @@ namespace INTEX_2.Models
         public string? county_name { get; set; }
         [Required]
         public int crash_severity_id { get; set; }
-        public bool? work_zone_related { get; set; }
-        public bool? pedestrian_involved { get; set; }
-        public bool? bicyclist_involved { get; set; }
-        public bool? motorcycle_involved { get; set; }
-        public bool? improper_restraint { get; set; }
-        public bool? unrestrained { get; set; }
-        public bool? dui { get; set; }
-        public bool? intersection_related { get; set; }
-        public bool? wild_animal_related { get; set; }
-        public bool? domestic_animal_related { get; set; }
-        public bool? overturn_rollover { get; set; }
-        public bool? commercial_motor_veh_involved { get; set; }
-        public bool? teenage_driver_involved { get; set; }
-        public bool? older_driver_involved { get; set; }
-        public bool? night_dark_condition { get; set; }
-        public bool? single_vehicle { get; set; }
-        public bool? distracted_driving { get; set; }
-        public bool? drowsy_driving { get; set; }
-        public bool? roadway_departure { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? work_zone_related { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? pedestrian_involved { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? bicyclist_involved { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? motorcycle_involved { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? improper_restraint { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? unrestrained { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? dui { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? intersection_related { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? wild_animal_related { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? domestic_animal_related { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? overturn_rollover { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? commercial_motor_veh_involved { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? teenage_driver_involved { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? older_driver_involved { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? night_dark_condition { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? single_vehicle { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? distracted_driving { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? drowsy_driving { get; set; }
+        [Range(0, 1,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? roadway_departure { get; set; }
 
     }
 }
