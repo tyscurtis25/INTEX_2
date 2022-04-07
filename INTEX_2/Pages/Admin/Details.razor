@@ -16,25 +16,216 @@
                 <tr><th>City:</th><td>@c.city</td></tr>
                 <tr><th>County Name:</th><td>@c.county_name</td></tr>
                 <tr><th>Crash Severity:</th><td>@c.crash_severity_id</td></tr>
-                <tr><th>Work Zone Related:</th><td>@c.work_zone_related</td></tr>
-                <tr><th>Pedestrian Involved:</th><td>@c.pedestrian_involved</td></tr>
-                <tr><th>Bicyclist Involved:</th><td>@c.bicyclist_involved</td></tr>
-                <tr><th>Motorcycle Involved:</th><td>@c.motorcycle_involved</td></tr>
-                <tr><th>Improper Restraint:</th><td>@c.improper_restraint</td></tr>
-                <tr><th>Unrestrained:</th><td>@c.unrestrained</td></tr>
-                <tr><th>DUI:</th><td>@c.dui</td></tr>
-                <tr><th>Intersection Related:</th><td>@c.intersection_related</td></tr>
-                <tr><th>Wild Animal Related:</th><td>@c.wild_animal_related</td></tr>
-                <tr><th>Domestic Animal Related:</th><td>@c.domestic_animal_related</td></tr>
-                <tr><th>Overturn Rollover:</th><td>@c.overturn_rollover</td></tr>
-                <tr><th>Commercial Motor Vehicle Involved:</th><td>@c.commercial_motor_veh_involved</td></tr>
-                <tr><th>Teenage Driver Involved:</th><td>@c.teenage_driver_involved</td></tr>
-                <tr><th>Older Driver Involved:</th><td>@c.older_driver_involved</td></tr>
-                <tr><th>Night/Dark Condition:</th><td>@c.night_dark_condition</td></tr>
-                <tr><th>Single Vehicle:</th><td>@c.single_vehicle</td></tr>
-                <tr><th>Distracted Driving:</th><td>@c.distracted_driving</td></tr>
-                <tr><th>Drowsy Driving:</th><td>@c.drowsy_driving</td></tr>
-                <tr><th>Roadway Departure:</th><td>@c.roadway_departure</td></tr>
+                <tr>
+                    <th>Work Zone Related:</th>
+                    @if (@c.work_zone_related == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+
+                </tr>
+                <tr>
+                    <th>Pedestrian Involved:</th>
+                    @if (@c.pedestrian_involved == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Bicyclist Involved:</th>
+                    @if (@c.bicyclist_involved == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Motorcycle Involved:</th>
+                    @if (@c.motorcycle_involved == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Improper Restraint:</th>
+                    @if (@c.improper_restraint == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Unrestrained:</th>
+                    @if (@c.unrestrained == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>DUI:</th>
+                    @if (@c.dui == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Intersection Related:</th>
+                    @if (@c.intersection_related == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Wild Animal Related:</th>
+                    @if (@c.wild_animal_related == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Domestic Animal Related:</th>
+                    @if (@c.domestic_animal_related == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Overturn Rollover:</th>
+                    @if (@c.overturn_rollover == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Commercial Motor Vehicle Involved:</th>
+                    @if (@c.commercial_motor_veh_involved == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Teenage Driver Involved:</th>
+                    @if (@c.teenage_driver_involved == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Older Driver Involved:</th>
+                    @if (@c.older_driver_involved == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Night/Dark Condition:</th>
+                    @if (@c.night_dark_condition == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Single Vehicle:</th>
+                    @if (@c.single_vehicle == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Distracted Driving:</th>
+                    @if (@c.distracted_driving == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Drowsy Driving:</th>
+                    @if (@c.drowsy_driving == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
+                <tr>
+                    <th>Roadway Departure:</th>
+                    @if (@c.roadway_departure == 1)
+                    {
+                        <td>True</td>
+                    }
+                    else
+                    {
+                        <td>False</td>
+                    }
+                </tr>
             </tbody>
         </table>
     </div>
