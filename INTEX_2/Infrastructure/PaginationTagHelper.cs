@@ -41,7 +41,7 @@ namespace INTEX_2.Infrastructure
                 {
                     TagBuilder tb = new TagBuilder("a");
                     tb.MergeAttribute("role", "button");
-                    tb.MergeAttribute("class", "btn btn-primary");
+                    tb.MergeAttribute("class", "btn btn-outline-success");
                     tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
                     tb.InnerHtml.Append(i.ToString());
 

@@ -13,10 +13,16 @@ namespace INTEX_2.Models
         [Key]
         [Required]
         public int crash_id { get; set; }
+        [DataType(DataType.DateTime,
+        ErrorMessage = "Must be in valid DateTime Format")]
         public DateTime? crash_datetime { get; set; }
+        [Range(1, 1000, ErrorMessage = "Value must be between 1 to 1000")]
         public int? route { get; set; }
+        [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Value must have 2 decimal places")]
         public double? milepoint { get; set; }
+        [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Value must have 2 decimal places")]
         public double? lat_utm_y { get; set; }
+        [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Value must have 2 decimal places")]
         public double? long_utm_x { get; set; }
         [StringLength(50)]
         public string? main_road  { get; set; }
