@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Looking Ahead";
+}
+@model CrashSeverity
+
+<h3 class="text-center">Predicting and Preventing Future Accidents</h3>
+
+<h4>Fill out the information below to see the predicted crash severity. Based on our algorithmn, the results are over 70% accurate</h4>
+<form method="post" asp-controller="Prediction" asp-action="Score">
+    <div>
+        <label asp-for="Lat_utm_y">Lattitude:</label>
+        <input asp-for="Lat_utm_y" />
+    </div>
+    <div>
+        <label asp-for="Long_utm_x">Longitude:</label>
+        <input asp-for="Long_utm_x" />
+    </div>
+    <div>
+        <label asp-for="Intersection_Related_False">Intesection Related False:</label>
+        <input asp-for="Intersection_Related_False" /><br />
+    </div>
+    <div>
+        <label asp-for="Intersection_Related_True">Intersection Related True:</label>
+        <input asp-for="Intersection_Related_True" /><br />
+    </div>
+    <div>
+        <label asp-for="Teenage_driver_involved_true">Teenage Driver True:</label>
+        <input asp-for="Teenage_driver_involved_true" />
+    </div>
+    <div>
+        <label asp-for="Teenage_driver_involved_false">Teenage Driver False:</label>
+        <input asp-for="Teenage_driver_involved_false" />
+    </div>
+    <div>
+        <label asp-for="Older_driver_involved_true">Old Driver True:</label>
+        <input asp-for="Older_driver_involved_true" />
+    </div>
+    <div>
+        <label asp-for="Older_driver_involved_false">Old Driver False:</label>
+        <input asp-for="Older_driver_involved_false" />
+    </div>
+    <div>
+        <label asp-for="Night_dark_condition_true">Night True:</label>
+        <input asp-for="Night_dark_condition_true" />
+    </div>
+    <div>
+        <label asp-for="Night_dark_condition_false">Night False</label>
+        <input asp-for="Night_dark_condition_false" />
+    </div>
+    <div>
+        <label asp-for="Single_vehicle_true">Single Vehicle True:</label>
+        <input asp-for="Single_vehicle_true" />
+    </div>
+    <div>
+        <label asp-for="Single_vehicle_false">Single Vehicle False:</label>
+        <input asp-for="Single_vehicle_false" />
+    </div>
+    <div>
+        <label asp-for="Roadway_departure_true">Roadway Departure True:</label>
+        <input asp-for="Roadway_departure_true" />
+    </div>
+    <div>
+        <label asp-for="Roadway_departure_false">Roadway Departure False:</label>
+        <input asp-for="Roadway_departure_false" />
+    </div>
+    <div>
+        <label asp-for="Route_Other"> Route Other True: </label>
+        <input asp-for="Route_Other" />
+    </div>
+    <div>
+        <label asp-for="Route_15">I-15:</label>
+        <input asp-for="Route_15" />
+    </div>
+    <div>
+        <label asp-for="Main_road_name_Other">Main Road Name Other:</label>
+        <input asp-for="Main_road_name_Other" />
+    </div>
+    <div>
+        <label asp-for="Main_road_name_I15">Road Name I-15:</label>
+        <input asp-for="Main_road_name_I15" />
+    </div>
+    <div>
+        <label asp-for="milepoint_0_1">MilePoint 1:</label>
+        <input asp-for="milepoint_0_1" />
+    </div>
+    <div>
+        <label asp-for="City_OUTSIDE_CITY_LIMITS">Outside City Limits:</label>
+        <input asp-for="City_OUTSIDE_CITY_LIMITS" />
+    </div>
+    <div>
+        <label asp-for="City_Other">City Other:</label>
+        <input asp-for="City_Other" />
+    </div>
+    <div>
+        <label asp-for="County_name_Other">County Other:</label>
+        <input asp-for="County_name_Other" />
+    </div>
+    <div>
+        <label asp-for="County_name_SALT_LAKE">County SLC:</label>
+        <input asp-for="County_name_SALT_LAKE" />
+    </div>
+    <div>
+        <label asp-for="County_name_UTAH">County Utah:</label>
+        <input asp-for="County_name_UTAH" />
+    </div>
+    <div>
+        <label asp-for="Year_2016">Year 2016:</label>
+        <input asp-for="Year_2016" />
+    </div>
+    <div>
+        <label asp-for="Year_2017">Year 2017:</label>
+        <input asp-for="Year_2017" />
+    </div>
+    <div>
+        <label asp-for="Year_2018">Year 2018:</label>
+        <input asp-for="Year_2018" />
+    </div>
+    <div>
+        <label asp-for="Month_1">Month January:</label>
+        <input asp-for="Month_1" />
+    </div>
+    <div>
+        <label asp-for="Hour_17">Hour 17:</label>
+        <input asp-for="Hour_17" />
+    </div>
+
+    <button type="submit">Predict Severity</button>
+
+</form>

@@ -23,6 +23,7 @@ namespace INTEX_2.Models
         public float Roadway_departure_false { get; set; }
         public float Roadway_departure_true { get; set; }
         public float Route_15 { get; set; }
+        public float Route_Other { get; set; }
         public float Main_road_name_Other { get; set; }
         public float Main_road_name_I15 { get; set; }
         public float milepoint_0_1 { get; set; }
@@ -45,12 +46,12 @@ namespace INTEX_2.Models
                 Lat_utm_y, Long_utm_x, Intersection_Related_False, Intersection_Related_True,
                 Teenage_driver_involved_false, Teenage_driver_involved_true, Older_driver_involved_false,
                 Older_driver_involved_true, Night_dark_condition_false, Night_dark_condition_true, Single_vehicle_false,
-                Single_vehicle_true, Roadway_departure_false, Roadway_departure_true, Route_15, Main_road_name_Other, Main_road_name_I15,
+                Single_vehicle_true, Roadway_departure_false, Roadway_departure_true, Route_15, Route_Other, Main_road_name_Other, Main_road_name_I15,
                 milepoint_0_1, Crash_severity_id, Hour_17, Month_1, Year_2018, Year_2017, Year_2016, County_name_UTAH, 
-                County_name_SALT_LAKE, County_name_Other, City_Other
+                County_name_SALT_LAKE, County_name_Other, City_Other, City_OUTSIDE_CITY_LIMITS
 
             };
-            int[] dimensions = new int[] { 1, 8 };
+            int[] dimensions = new int[] { 1, 30 };
             return new DenseTensor<float>(data, dimensions);
         }
     }

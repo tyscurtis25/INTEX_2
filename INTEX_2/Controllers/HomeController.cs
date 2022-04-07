@@ -74,10 +74,7 @@ namespace INTEX_2.Controllers
         }
 
 
-        public IActionResult LookingAhead()
-        {
-            return View();
-        }
+        
 
     }
 }
