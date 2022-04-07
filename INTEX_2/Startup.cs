@@ -50,6 +50,15 @@ namespace INTEX_2
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddServerSideBlazor();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 16;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredUniqueChars = 1;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
