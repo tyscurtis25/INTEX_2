@@ -64,7 +64,6 @@ nav li {
 .bg-red2 {
     color: var(--four);
 }
-
 .background {
     background: url('../img/DON-crash-02_2048x.jpg');
     background-size: cover;
@@ -81,7 +80,13 @@ nav li {
     height: 75%;
     opacity:.5;
 }*/
+dd, dt {
+    font-size: 20px;
+}
 
+.inline-stuff {
+    display: inline;
+}
 /*.border-bottom {
     border-color: var(--three);
 }

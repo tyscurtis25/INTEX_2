@@ -3,6 +3,7 @@
 }
 
 @model Crash
+
     <div class="container col-11">
             <h1>Crash Details</h1>
             <div class="row">
@@ -47,3 +48,333 @@
                 </div>
             </div>
     </div>
+
+<h1>Crash Details</h1>
+<div class="row">
+    <div class="col card ">
+        <h2 class="pt-3 pl-2">Location Information</h2>
+        <div class="text-left  pl-2">
+            <dl>
+                <dt>Crash Date: </dt>
+                <dd>@Model.crash_datetime</dd>
+
+                <dt>Route: </dt>
+                <dd>@Model.route</dd>
+
+                <dt>Main Road: </dt>
+                <dd>@Model.main_road</dd>
+
+                <dt>City: </dt>
+                <dd>@Model.city</dd>
+
+                <dt>County: </dt>
+                <dd>@Model.county_name</dd>
+
+                <dt>Milemarker: </dt>
+                <dd>@Model.milepoint</dd>
+
+                <dt>Latitude: </dt>
+                <dd>@Model.lat_utm_y</dd>
+
+                <dt>Longitude: </dt>
+                <dd>@Model.long_utm_x</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="col">
+        <h2>Crash Conditions</h2>
+        <dl class="list-group">
+            <div class="list-group-item ">
+            <dt class="inline-stuff">
+                Work Zone Related:
+            </dt>
+            @if (@Model.work_zone_related == 1)
+            {
+                <dd class="inline-stuff">True</dd>
+
+            }
+            else
+            {
+                <dd class="inline-stuff">False</dd>
+            }
+    </div>
+
+
+
+
+
+    <div class="list-group-item ">
+        <dt class="inline-stuff">
+            Pedestrian Involved:
+        </dt>
+        @if (@Model.pedestrian_involved == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+    <div class="list-group-item">
+        <dt class="inline-stuff">
+            Bicycdtst Involved:
+        </dt>
+        @if (@Model.bicyclist_involved == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+    <div class="list-group-item ">
+        <dt class="inline-stuff">
+            Motorcycle Involved:
+        </dt>
+
+        @if (@Model.motorcycle_involved == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+    <div class="list-group-item ">
+        <dt class="inline-stuff">
+            Improper Restraint:
+        </dt>
+        @if (@Model.improper_restraint == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+    <div class="list-group-item ">
+        <dt class="inline-stuff">
+            Unrestrained:
+        </dt>
+        @if (@Model.unrestrained == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+    <div class="list-group-item ">
+        <dt class="inline-stuff">
+            DUI:
+        </dt>
+        @if (@Model.dui == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+    <div class="list-group-item ">
+        <dt class="inline-stuff">
+            Intersection Related:
+        </dt>
+        @if (@Model.intersection_related == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+    <div class="list-group-item ">
+        <dt class="inline-stuff">
+            Wild Animal Related:
+        </dt>
+        @if (@Model.wild_animal_related == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </div>
+
+
+
+
+    </dl>
+
+</div>
+<div class="col">
+    <dl>
+
+        <div class="list-group-item ">
+        <dt class="inline-stuff">
+            Domestic Animal Related:
+        </dt>
+        @if (@Model.domestic_animal_related == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Overturn Rollover:
+    </dt>
+    @if (@Model.overturn_rollover == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Commercial Motor Vehicle Involved:
+        @if (@Model.commercial_motor_veh_involved == 1)
+        {
+            <dd class="inline-stuff">True</dd>
+        }
+        else
+        {
+            <dd class="inline-stuff">False</dd>
+        }
+    </dt>
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Teenage Driver Involved:
+    </dt>
+    @if (@Model.teenage_driver_involved == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Older Driver Involved:
+    </dt>
+    @if (@Model.older_driver_involved == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Night/Dark Condition:
+    </dt>
+    @if (@Model.night_dark_condition == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Single Vehicle:
+    </dt>
+    @if (@Model.single_vehicle == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+
+<div class="list-group-item ">
+
+    <dt class="inline-stuff">
+        Distracted Driving:
+    </dt>
+    @if (@Model.distracted_driving == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Drowsy Driving:
+    </dt>
+    @if (@Model.drowsy_driving == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+
+<div class="list-group-item ">
+    <dt class="inline-stuff">
+        Roadway Departure:
+    </dt>
+    @if (@Model.roadway_departure == 1)
+    {
+        <dd class="inline-stuff">True</dd>
+    }
+    else
+    {
+        <dd class="inline-stuff">False</dd>
+    }
+
+</div>
+    </dl>
+</div>
+</div>

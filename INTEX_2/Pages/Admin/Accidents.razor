@@ -42,34 +42,34 @@
                     //List Books
                     @foreach (Crash c in CrashData)
                     {
-                <tr>
+                        <tr>
 
-                    <td>@c.crash_datetime</td>
-                    <td>@c.route</td>
-                    <td>@c.main_road</td>
-                    <td>@c.city</td>
-                    <td>@c.county_name</td>
-                    <td>@c.crash_severity_id</td>
+                            <td>@c.crash_datetime</td>
+                            <td>@c.route</td>
+                            <td>@c.main_road</td>
+                            <td>@c.city</td>
+                            <td>@c.county_name</td>
+                            <td>@c.crash_severity_id</td>
 
-                    <td>
-                        <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
-                        <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
-                        <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
-                    </td>
-                    @*<td>
-                        <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
-                    </td>
-                    <td>
-                        <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
-                    </td>
-                    <td>
-                        <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
-                    </td>*@
-                    @*This is a button that deletes the record immediately, without confirmation.*@
-                    @*<td>
-            <button class="btn btn-outline-danger btn-sm" @onclick="@(x => DeleteCrash(c))">Delete</button>
-        </td>*@
-                </tr>
+                            <td>
+                                <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
+                                <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
+                                <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
+                            </td>
+                            @*<td>
+                                    <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
+                                </td>
+                                <td>
+                                    <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
+                                </td>
+                                <td>
+                                    <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
+                                </td>*@
+                            @*This is a button that deletes the record immediately, without confirmation.*@
+                            @*<td>
+                                    <button class="btn btn-outline-danger btn-sm" @onclick="@(x => DeleteCrash(c))">Delete</button>
+                                </td>*@
+                        </tr>
                     }
                 }
                 else
@@ -87,6 +87,9 @@
 </div>
 @*pagination*@
 
+@*@for(int p = 1; p<= CrashData?.Count() / pageSize ; p++) {
+<button type="button" class="btn btn-outline-secondary" @onclick="(e=>HandleChangePage(p))">@p</button>
+}*@
 
 <br />
 
@@ -106,7 +109,7 @@
     public async Task UpdateData()
     {
         CrashData = await repo.Crashes
-            .Where(c => c.milepoint == 75)
+            //.Where(c => c.milepoint == 75)
             .Take(100) //So the machine survives
             .ToListAsync();
     }
@@ -115,11 +118,41 @@
     public string GetEditUrl(int id) => $"/admin/edit/{id}";
     public string GetDeleteUrl(int id) => $"/admin/delete/{id}";
 
-    //public async Task DeleteCrash(Crash c)
+    //  pagination
+    //private int pageSize = 10;
+    //private int pageNumber = 1;
+
+    //public async Task UpdateData(int accidentFilter, int pageNum = 1)
     //{
-    //    repo.DeleteCrash(c);
-    //    await UpdateData();
+    //    int pageSize = 20;
+
+    //    ViewBag.pageNumber = pageNum;
+    //    ViewBag.numPages = (int)Math.Ceiling((double)repo.Crashes.Count() / pageSize);
+
+    //    var x = new CrashViewModel
+    //    {
+    //        Crashes = repo.Crashes
+    //            .Where(c => c.crash_severity_id == accidentFilter || accidentFilter == 0)
+    //            .Skip((pageNum - 1) * pageSize)
+    //            .Take(pageSize),
+
+    //        PageInfo = new PageInfo
+    //        {
+    //            TotalNumCrashes = (accidentFilter == 0 ? repo.Crashes.Count() : repo.Crashes.Where(c => c.crash_severity_id == accidentFilter).Count()),
+    //            CrashesPerPage = pageSize,
+    //            CurrentPage = pageNum,
+
+    //        }
+    //    };
     //}
 
-    //  pagination
+    //private int pageSize = 20;
+    //private int pageNumber = 1;
+
+    //void HandleChangePage(int p)
+    //{
+    //    pageNumber = p;
+    //    var page = CrashData.Skip((p - 1) * pageSize).Take(pageSize);
+    //}
+
 }
