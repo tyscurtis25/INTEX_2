@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - INTEX_2</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/css/main.css" rel="stylesheet" />
@@ -19,55 +19,19 @@
 
 </head>
 <body>
-    <header>
-        <nav class="navbar-toggleable-sm navbar-nav flex-grow-1">
-
-
-            <nav role="navigation">
-                <div id="menuToggle">
-
-                    <input type="checkbox" />
-
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-
-                    <ul id="menu">
-                        <a asp-action="Index" asp-controller="Home" asp-area="">Home</a>
-                        <br />
-                        <a asp-controller="Home" asp-action="Accidents" asp-area="">Accidents</a>
-                        <br />
-                        <a asp-area="" asp-action="Privacy" asp-controller="Home">Privacy</a>
-                        <br />
-                        <a asp-action="LookingAhead" asp-controller="Prediction" asp-area="">Looking Ahead</a>
-
-
-                    </ul>
-                </div>
-            </nav>
+    <header class="">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/favicon-32x32.png" />
                 </a>
-                
-            </div>
-            <partial name="_LoginPartial" />
-            
-        </nav>
-        @*<nav class="navbar navbar-expand-sm  navbar-light border-bottom box-shadow">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/favicon-32x32.png" />
-                    </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-
-                    <ul class="">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -83,21 +47,50 @@
                     </ul>
                 </div>
             </div>
-        </nav>*@
+        </nav>
+        @*<nav role="navigation">
+                <div id="menuToggle">
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul id="menu">
+                        <a asp-action="Index" asp-controller="Home" asp-area="">Home</a>
+                        <br />
+                        <a asp-controller="Home" asp-action="Accidents" asp-area="">Accidents</a>
+                        <br />
+                        <a asp-area="" asp-action="Privacy" asp-controller="Home">Privacy</a>
+                        <br />
+                        <a asp-action="LookingAhead" asp-controller="Prediction" asp-area="">Looking Ahead</a>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-sm  navbar-light border-bottom box-shadow
+                 navbar-toggleable-sm navbar-nav flex-grow-1">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/favicon-32x32.png" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <partial name="_LoginPartial" />
+                </div>
+            </nav>*@
     </header>
 
     <div class="">
-        <div class="">
-          <partial name="_CookieConsentPartial" />
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+        <partial name="_CookieConsentPartial" />
     </div>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - INTEX_2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - WWCPUT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

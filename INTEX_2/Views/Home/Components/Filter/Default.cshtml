@@ -9,18 +9,43 @@
     </div>*@
 
     <div class="row">
-        <h4>Filter by Crash Severity:</h4>
+        <h5>Filter by Crash Severity:</h5>
         @*<div class="col">
             
         </div>*@
-        <div class="col">
-            <a asp-controller="Home" asp-action="Accidents" asp-route-accidentFilter="" asp-route-pageNum="1" class="btn btn-outline-primary m-1">All</a>
-            @foreach (int f in Model)
+    <div class="col">
+        <a asp-controller="Home" asp-action="Accidents" asp-route-accidentFilter="" 
+           asp-route-pageNum="1" class="btn btn-outline-primary m-1 btn-sm">All</a>
+
+        @foreach (int f in Model)
+        {
+            @if (f == 1)
             {
                 <a asp-controller="Home" asp-action="Accidents" asp-route-accidentFilter="@f" asp-route-pageNum="1"
-                   class="btn m-1 btn-outline-danger">@f</a>
+                   class="btn m-1 btn-outline-danger btn-sm">1 - No Injury</a>
             }
-        </div>
+            else if (f == 2)
+            {
+                <a asp-controller="Home" asp-action="Accidents" asp-route-accidentFilter="@f" asp-route-pageNum="1"
+                   class="btn m-1 btn-outline-danger btn-sm">2 - Possible Injury</a>
+            }
+            else if (f == 3)
+            {
+                <a asp-controller="Home" asp-action="Accidents" asp-route-accidentFilter="@f" asp-route-pageNum="1"
+                   class="btn m-1 btn-outline-danger btn-sm">3 - Suspected Minor Injury</a>
+            }
+            else if (f == 4)
+            {
+                <a asp-controller="Home" asp-action="Accidents" asp-route-accidentFilter="@f" asp-route-pageNum="1"
+                   class="btn m-1 btn-outline-danger btn-sm">4 - Suspected Serious Injury</a>
+            }
+            else
+            {
+                <a asp-controller="Home" asp-action="Accidents" asp-route-accidentFilter="@f" asp-route-pageNum="1"
+                   class="btn m-1 btn-outline-danger btn-sm">5 - Fatal</a>
+            }
+        }
+    </div>
     </div>
 </div>
 

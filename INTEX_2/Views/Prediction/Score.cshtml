@@ -5,4 +5,42 @@
 }
 @model Prediction
 
-<h1>Your predicted Score will be @Model.PredictedValue</h1>
+@if (Model.PredictedValue == 1){
+<div class="card home-banner">
+    <div class="container text-center">
+        <h2 class="text-center indextitle display-5">Under these conditions there is a 65% likelihood of No Injury</h2>
+    </div>
+</div>
+}
+
+else if (Model.PredictedValue == 2){
+<div class="card home-banner">
+    <div class="container text-center">
+        <h2 class="text-center indextitle display-5">Under these conditions there is a 65% likelihood of Possible Injury</h2>
+    </div>
+</div>
+}
+
+else if (Model.PredictedValue == 3){
+<div class="card home-banner">
+    <div class="container text-center">
+        <h2 class="text-center indextitle display-5">Under these conditions there is a 65% likelihood of Suspected Minor Injury</h2>
+    </div>
+</div>
+}
+
+else if (Model.PredictedValue == 4){
+<div class="card home-banner">
+    <div class="container text-center">
+        <h2 class="text-center indextitle display-5">Under these conditions there is a 65% likelihood of Suspected Serious Injury</h2>
+    </div>
+</div>
+}
+
+else {
+<div class="card home-banner">
+    <div class="container text-center">
+        <h2 class="text-center indextitle display-5">Under these conditions there is a 65% likelihood of being Fatal</h2>
+    </div>
+</div>
+}
