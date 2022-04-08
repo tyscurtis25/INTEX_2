@@ -56,19 +56,6 @@
                                 <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
                                 <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
                             </td>
-                            @*<td>
-                                    <NavLink class="btn btn-outline-primary btn-sm" href="@GetDetailsUrl(c.crash_id)">Details</NavLink>
-                                </td>
-                                <td>
-                                    <NavLink class="btn btn-outline-success btn-sm" href="@GetEditUrl(c.crash_id)">Edit</NavLink>
-                                </td>
-                                <td>
-                                    <NavLink class="btn btn-outline-danger btn-sm" href="@GetDeleteUrl(c.crash_id)">Delete</NavLink>
-                                </td>*@
-                            @*This is a button that deletes the record immediately, without confirmation.*@
-                            @*<td>
-                                    <button class="btn btn-outline-danger btn-sm" @onclick="@(x => DeleteCrash(c))">Delete</button>
-                                </td>*@
                         </tr>
                     }
                 }
@@ -109,8 +96,9 @@
     public async Task UpdateData()
     {
         CrashData = await repo.Crashes
-            //.Where(c => c.milepoint == 75)
-            .Take(100) //So the machine survives
+            .Where(c => c.crash_id > 11310000)
+            .OrderByDescending(c => c.crash_id)
+            //.Take(100) //So the machine survives
             .ToListAsync();
     }
 
