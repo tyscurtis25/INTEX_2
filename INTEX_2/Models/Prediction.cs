@@ -7,6 +7,6 @@ namespace INTEX_2.Models
 {
     public class Prediction
     {
-        public string PredictedValue { get; set; }
+        public long PredictedValue { get; set; }
     }
 }

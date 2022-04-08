@@ -2,21 +2,80 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <div class="container col-7 text-left"><br />
-    <h2 class="display-5 modal-header">Wrong Way Crash Prevention | Utah</h2>
+<div class=" text-center  ">
+    <div class="" style="background-color: var(--three); padding: 7px;">
 
-    <div class="">
         <br />
-        <p>
-            Welcome to the Utah Wrong-Way Crash Prevention info center.<br />
-            This site is a repository for Utah crash/roadway incident data from 2016-2019.
-            By following the “Accident Summary” tab, you will view the entire database. You
-            will be able to filter this database by crash severity. With proper administrative
-            credentials, you are permitted to edit and delete these entries, or even create a
-            new record. Additionally, user registration features allow you to login as a user,
-            and for added security, set up 2FA.
-        </p>
+
+        <h2 class="display-4 indextitle">Wrong Way Crash Prevention | Utah</h2>
+
+        <br /><br />
+
+        <div class="container col-7 text-left">
+
+            <h4 class="text-white"> Welcome to the Utah Wrong-Way Crash Prevention info center.</h4>
+            <br />
+            <p class="text-white">
+                This site is a repository for Utah crash/roadway incident data from 2016-2019.
+                By following the “Accident Summary” tab, you will view the entire database. You
+                will be able to filter this database by crash severity. With proper administrative
+                credentials, you are permitted to edit and delete these entries, or even create a
+                new record. Additionally, user registration features allow you to login as a user,
+                and for added security, set up 2FA.
+            </p>
+        </div>
     </div>
-</div>
+    <br /><br /><br />
+        <section id="services" class="container">
+            <h2 class="display-4 text-center mt-5 mb-3" style="color: var(--seven);">Our Serivces</h2>
+
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="~/img/crash_image.jpg" alt="Design">
+                        <div class="card-body">
+                            <h4 class="card-title">Accident Summary</h4>
+                            <p class="card-text">
+                                Hands on expereience with data concerning accidents that have
+                                occurred from 2016-2019. 
+                            </p>
+                        </div>
+                        <div class="card-footer py-4">
+                            <a asp-action="Accidents" class="btn btn-success">See Accident Summary &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="~/img/Customer-Privacy-Policy.jpg" alt="Development">
+                        <div class="card-body">
+                            <h4 class="card-title">Privacy Policy</h4>
+                            <p class="card-text">
+                                We know the value of privacy and constantly strive to handle your information with care.
+                            </p>
+                        </div>
+                        <div class="card-footer py-4">
+                            <a asp-action="Privacy" class="btn btn-success">See Privacy Policy &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="~/img/analyticsimg.jpg" alt="Analytics">
+                        <div class="card-body">
+                            <h4 class="card-title">Analytics</h4>
+                            <p class="card-text">
+                                Learn more about what the leading factors of wrong way crashes are and how you can help prevent them
+                            </p>
+                        </div>
+                        <div class="card-footer py-4">
+                            <a asp-controller="Prediction" asp-action="LookingAhead" class="btn btn-success">Go To Analytics &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
 </div>
