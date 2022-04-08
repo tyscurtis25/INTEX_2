@@ -30,7 +30,7 @@ namespace INTEX_2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("Models/intex.onnx"));
+                new InferenceSession("wwwroot/intex.onnx"));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(

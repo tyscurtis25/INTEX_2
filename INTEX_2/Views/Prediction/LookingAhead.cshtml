@@ -2,125 +2,128 @@
     ViewData["Title"] = "Looking Ahead";
 }
 @model CrashSeverity
+<br />
 
-<h3 class="text-center">Predicting and Preventing Future Accidents</h3>
+    <div class="container col-7">
+        <h3 class="text-center">Predicting and Preventing Future Accidents</h3>
 
-<h4>Fill out the information below to see the predicted crash severity. Based on our algorithmn, the results are over 70% accurate</h4>
-<form method="post" asp-controller="Prediction" asp-action="Score">
-    <div>
-        <label asp-for="Lat_utm_y">Lattitude:</label>
-        <input asp-for="Lat_utm_y" />
-    </div>
-    <div>
-        <label asp-for="Long_utm_x">Longitude:</label>
-        <input asp-for="Long_utm_x" />
-    </div>
-    <div>
-        <label asp-for="Intersection_Related_True">Did the accident occur in an intersection?</label>
-        <select asp-for="Intersection_Related_True">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
-    <div>
-        <label asp-for="Teenage_driver_involved_true">Was a teenage driver involved?</label>
-        <select asp-for="Teenage_driver_involved_true">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
-    <div>
-        <label asp-for="Older_driver_involved_true">Was an older driver involved?</label>
-        <select asp-for="Older_driver_involved_true">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
-    <div>
-        <label asp-for="Night_dark_condition_true">Did the accident occur at night?</label>
-        <select asp-for="Night_dark_condition_true">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
-    <div>
-        <label asp-for="Single_vehicle_true">Was there only one vehicle involved?</label>
-        <select asp-for="Single_vehicle_true">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
-    <div>
-        <label asp-for="Roadway_departure_true">Did the vehicle leave the roadway?</label>
-        <select asp-for="Roadway_departure_true">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
-    <div class="form-check">
-        <div><strong>What route did the accident occur on?</strong></div>
-        <input asp-for="Route_15" class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="Route_15">
-            15
-        </label><br />
-        <input asp-for="Route_Other" class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="Route_Other">
-            Other
-        </label>
-    </div>
-    <div class="form-check">
-        <div><strong>What road did the accident occur on?</strong></div>
-        <input asp-for="Main_road_name_I15" class="form-check-input" type="radio" value="1" name="1flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="Main_road_name_I15">
-            I-15
-        </label><br />
-        <input asp-for="Main_road_name_Other" class="form-check-input" type="radio" value="1" name="1flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="Main_road_name_Other">
-            Other
-        </label>
-    </div>
-    <div class="form-check">
-        <div><strong>Where did the accident occur?</strong></div>
-        <input asp-for="City_OUTSIDE_CITY_LIMITS" class="form-check-input" type="radio" value="1" name="2flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="City_OUTSIDE_CITY_LIMITS">
-            Outside City Limits
-        </label><br />
-        <input asp-for="City_Other" class="form-check-input" type="radio" value="1" name="2flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="City_Other">
-            Within City Limits
-        </label>
-    </div>
-    <div class="form-check">
-        <div><strong>What county did the accident occur in?</strong></div>
-        <input asp-for="County_name_UTAH" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="County_name_UTAH">
-            Utah County
-        </label><br />
-        <input asp-for="County_name_SALT_LAKE" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="County_name_SALT_LAKE">
-            Salt Lake County
-        </label><br />
-        <input asp-for="County_name_Other" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="County_name_Other">
-            Other
-        </label>
-    </div>
-    <div>
-        <label asp-for="Month_1">Did The Accident Occur in the Month of January?</label>
-        <select asp-for="Month_1">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
-    <div>
-        <label asp-for="Hour_17">Did The Accident Occur around 5 PM?</label>
-        <select asp-for="Hour_17">
-            <option value="1">True</option>
-            <option value="0">False</option>
-        </select>
-    </div>
+        <h4>Fill out the information below to see the predicted crash severity. Based on our algorithmn, the results are over 70% accurate</h4>
+        <form method="post" asp-controller="Prediction" asp-action="Score">
+            <div>
+                <label asp-for="Lat_utm_y">Lattitude:</label>
+                <input asp-for="Lat_utm_y" />
+            </div>
+            <div>
+                <label asp-for="Long_utm_x">Longitude:</label>
+                <input asp-for="Long_utm_x" />
+            </div>
+            <div>
+                <label asp-for="Intersection_Related_True">Did the accident occur in an intersection?</label>
+                <select asp-for="Intersection_Related_True">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div>
+                <label asp-for="Teenage_driver_involved_true">Was a teenage driver involved?</label>
+                <select asp-for="Teenage_driver_involved_true">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div>
+                <label asp-for="Older_driver_involved_true">Was an older driver involved?</label>
+                <select asp-for="Older_driver_involved_true">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div>
+                <label asp-for="Night_dark_condition_true">Did the accident occur at night?</label>
+                <select asp-for="Night_dark_condition_true">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div>
+                <label asp-for="Single_vehicle_true">Was there only one vehicle involved?</label>
+                <select asp-for="Single_vehicle_true">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div>
+                <label asp-for="Roadway_departure_true">Did the vehicle leave the roadway?</label>
+                <select asp-for="Roadway_departure_true">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div class="form-check">
+                <div><strong>What route did the accident occur on?</strong></div>
+                <input asp-for="Route_15" class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="Route_15">
+                    15
+                </label><br />
+                <input asp-for="Route_Other" class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="Route_Other">
+                    Other
+                </label>
+            </div>
+            <div class="form-check">
+                <div><strong>What road did the accident occur on?</strong></div>
+                <input asp-for="Main_road_name_I15" class="form-check-input" type="radio" value="1" name="1flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="Main_road_name_I15">
+                    I-15
+                </label><br />
+                <input asp-for="Main_road_name_Other" class="form-check-input" type="radio" value="1" name="1flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="Main_road_name_Other">
+                    Other
+                </label>
+            </div>
+            <div class="form-check">
+                <div><strong>Where did the accident occur?</strong></div>
+                <input asp-for="City_OUTSIDE_CITY_LIMITS" class="form-check-input" type="radio" value="1" name="2flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="City_OUTSIDE_CITY_LIMITS">
+                    Outside City Limits
+                </label><br />
+                <input asp-for="City_Other" class="form-check-input" type="radio" value="1" name="2flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="City_Other">
+                    Within City Limits
+                </label>
+            </div>
+            <div class="form-check">
+                <div><strong>What county did the accident occur in?</strong></div>
+                <input asp-for="County_name_UTAH" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="County_name_UTAH">
+                    Utah County
+                </label><br />
+                <input asp-for="County_name_SALT_LAKE" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="County_name_SALT_LAKE">
+                    Salt Lake County
+                </label><br />
+                <input asp-for="County_name_Other" class="form-check-input" type="radio" value="1" name="3flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" asp-for="County_name_Other">
+                    Other
+                </label>
+            </div>
+            <div>
+                <label asp-for="Month_1">Did The Accident Occur in the Month of January?</label>
+                <select asp-for="Month_1">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div>
+                <label asp-for="Hour_17">Did The Accident Occur around 5 PM?</label>
+                <select asp-for="Hour_17">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
 
 
-    <button type="submit">Predict Severity</button>
+            <button type="submit">Predict Severity</button>
 
-</form>
+        </form>
+    </div>
