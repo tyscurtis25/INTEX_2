@@ -34,12 +34,11 @@ namespace INTEX_2
                 new InferenceSession("wwwroot/intex.onnx"));
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySql(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(Environment.GetEnvironmentVariable("Default")));
 
             services.AddDbContext<CrashDBContext>(options =>
             {
-                options.UseMySql(Configuration["ConnectionStrings:CrashDBConnection"]);
+                options.UseMySql(Environment.GetEnvironmentVariable("Crash"));
             });
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
